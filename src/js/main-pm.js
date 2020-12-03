@@ -49,6 +49,11 @@ function gestionJeu() {
 	}
 }
 
+function getCorrespondingAlibi(numPersonnage) {
+	let alibiScenario[][] = listAllAlibi.get(choixScenario);
+	return alibiScenario[numPersonnage][tour];
+}
+
 /**
  * Effectue les elements necessaires pour le scenario 1
  */
@@ -76,7 +81,7 @@ function initPersonnages(numImposteur) {
 
 function changementTexte(numPersonnage) {
 	//setText one de texte a celle correspondant 
-	document.getElementById('text_alibi_container').innerHTML = getTextForCharacter(numPersonnage);
+	document.getElementById('text_alibi_container').innerHTML = getCorrespondingText(numPersonnage);
 }
 
 /**
