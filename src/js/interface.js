@@ -1,0 +1,3 @@
+function createCharacter(text) {
+	// TODO
+}
