@@ -1,5 +1,8 @@
 const card_deck_container = document.getElementById('card_deck_container');
 
+let btnJouer = document.getElementById('btnJouer');
+let selectionScenario = document.getElementById('selectionScenario');
+
 /** Numero du scenario */
 let choixScenario = 1;
 
@@ -50,8 +53,6 @@ createCharacter("./../img/character_pink.png", 4);
 createCharacter("./../img/character_orange.png", 5);
 createCharacter("./../img/character_brown.png", 6);
 
-let btnJouer = document.getElementById('btnJouer');
-let selectionScenario = document.getElementById('selectionScenario');
 btnJouer.onclick = function() {
     choixScenario = selectionScenario.selectedIndex + 1;
     console.log(choixScenario);
