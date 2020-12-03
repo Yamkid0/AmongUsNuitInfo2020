@@ -37,3 +37,6 @@ body {
     padding: 10px;
     background-color: #ffffff !important;
 }
+#part2 {
+    display: none;
+}

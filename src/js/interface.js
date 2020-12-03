@@ -1,4 +1,19 @@
+const part1 = document.getElementById('part1');
+const part2 = document.getElementById('part2');
+
+const btnJouer = document.getElementById('btnJouer');
+const selectionScenario = document.getElementById('selectionScenario');
+
 const card_deck_container = document.getElementById('card_deck_container');
+
+let choixScenario;
+
+btnJouer.onclick = function() {
+    choixScenario = selectionScenario.selectedIndex + 1;
+    part1.style.display = 'none';
+    part2.style.display = 'block';
+    gestionJeu();
+}
 
 /*
 Crée un personnage.
