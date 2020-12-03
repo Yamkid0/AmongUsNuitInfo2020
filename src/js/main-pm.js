@@ -26,7 +26,7 @@ function Personnage(imposteur,vie,fichierImg) {
  */
 function setScenario(newScenario) {
 	console.log("set scenario");
-	sessionStorage.setItem("choixScenario", newScenario);
+	choixScenario = newScenario;
 }
 
 function setTour(newTour) {
@@ -37,7 +37,7 @@ function setTour(newTour) {
  * Cree la partie en fonction du scenario selectionne
  */
 function gestionJeu() {
-	console.log("Gestion jeu : \n Choix scenario :" +choixScenario);
+	console.log("Gestion jeu : \n Choix scenario :" + choixScenario);
 	setTour(1);
 	switch(choixScenario) {
 		case 1:
@@ -70,7 +70,7 @@ function initPersonnages(numImposteur) {
 		} else {
 			personnages[i] = new Personnage(false,true,"character_"+(i+1)+".png");
 		}
-		createCharacter(personnages[i].fichierImg, 1);
+		createCharacter('./src/img/' + personnages[i].fichierImg, 1);
 	}
 }
 
