@@ -70,7 +70,7 @@ function initPersonnages(numImposteur) {
 		} else {
 			personnages[i] = new Personnage(false,true,"character_"+(i+1)+".png");
 		}
-		createCharacter('./src/img/' + personnages[i].fichierImg, 1);
+		createCharacter('./src/img/' + personnages[i].fichierImg, i+1);
 	}
 }
 
