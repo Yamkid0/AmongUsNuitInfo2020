@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="Je_Tombe_A_Pique" content="">
+        <title>Accueil</title>
+
+        <!-- Bootstrap -->
+        <link href="src/bootstrap/bootstrap.css" rel="stylesheet">
+
+        <!-- CSS -->
+        <link href="src/css/index.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div class="container d-flex h-100 flex-column">
+
+            <div class="row my-auto">
+                <div class="col-md-12">
+                    <!-- Image personnage Among Us -->
+                    <img src="src/img/character.png">
+
+                    <!-- Sélection scénario + lancer partie -->
+                    <form>
+                        <div class="form-group">
+                            <select class="form-control mx-auto" id="selectionScenario">
+                                <option value="1">Scénario 1</option>
+                                <option value="2">Scénarion 2</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary" id="btnJouer">Jouer</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Import js -->
+        <script src="src/js/interface.js"></script>
+
+    </body>
+
+</html>
