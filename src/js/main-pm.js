@@ -1,17 +1,21 @@
 //Numero du scenario
-var choixScenario = 0;
+let choixScenario = 1;
 //Numero du tour
-var tour =1;
+let tour =1;
 //Array des personnages
-var personnages = new Array();
+let personnages = new Array();
 
-var nbPersonnage = 6;
+let nbPersonnages = 6;
+
+const IMPOSTEUR_SCENARIO1 = 3;
+
+const IMPOSTEUR_SCENARIO2 = 1;
 
 /**
  * Objet de type Personnage
  */
-function Personnage(role,vie,fichierImg) {
-    this.role = role; // imposteur ou innocent
+function Personnage(imposteur,vie,fichierImg) {
+    this.imposteur = imposteur; // imposteur ou innocent
     this.vie = vie; //en vie ?
     this.fichierImg = fichierImg; //lien vers son fichier image
 }
@@ -19,42 +23,95 @@ function Personnage(role,vie,fichierImg) {
  * Change le numero du scenario
  */
 function setScenario(newScenario) {
-	this.scenario = newScenario;
+	console.log("set scenario");
+	choixScenario = newScenario;
 }
 
 function setTour(newTour) {
 	this.tour = 1;
 }
 
+/**
+ * Cree la partie en fonction du scenario selectionne
+ */
 function gestionJeu() {
-	switch(scenario) {
+	console.log("Gestion jeu : \n Choix scenario :" +choixScenario);
+	setTour(1);
+	switch(choixScenario) {
 		case 1:
+			scenario(IMPOSTEUR_SCENARIO1);
 			break;
 		case 2:
+			scenario(IMPOSTEUR_SCENARIO2);
 			break;
 	}
 }
 
+/**
+ * Remet toutes les variables par defaut
+ */
 function nouvellePartie() {
 	//TODO recuperer numero sur interface ou directement envoye ?
 	setTour(1);
-	
 }
 
-function defaite() {
 
+/**
+ * Effectue les elements necessaires pour le scenario 1
+ */
+function scenario(numImposteur) {
+	initPersonnages(numImposteur);
+	afficherStatusPersonnagesDebug();
 }
 
-function victoire() {
-
-}
-
-function scenario1() {
-
-}
-
-function initPersonnages() {
-	for() {
-
+/**
+ * Initialise tous les personnages et l'imposteur
+ */
+function initPersonnages(numImposteur) {
+	console.log("initPersonnages");
+	personnages = new Array();
+	for(let i = 0; i < nbPersonnages; i++) {
+		if(i+1 == numImposteur) { //le personnage a definir comme imposteur
+			personnages[i] = new Personnage(true,true,"personnage"+i+".png");
+		} else {
+			personnages[i] = new Personnage(false,true,"personnage"+i+".png");
+		}
 	}
+}
+
+/**
+ * Affiche l'etat actuel des personnages
+ */
+function afficherStatusPersonnagesDebug() {
+	for(let i = 0; i < personnages.length; i++) {
+		console.log("Personnage : " + i+1 + " est : \n  Imposteur : " + personnages[i].imposteur + " \n  En vie : " + personnages[i].vie + " \n  Image : " + personnages[i].fichierImg);
+	}
+}
+
+/**
+ * Lorsque l'utilisateur vote un personnage
+ * S'il etait l'imposteur la partie est gagne sinon perdu
+ */
+function vote(numPersonnage) {
+	//get personnage voted
+	if(personnages[numPersonnage-1].imposteur) {
+		afficherVictoire();
+	} else {
+		afficherDefaite();
+		
+	}
+}
+
+/**
+ * Affiche la video ? gif de defaite
+ */
+function afficherDefaite() {
+	console.log("defaite");
+}
+
+/**
+ * Affiche la video ? gif de victoire
+ */
+function afficherVictoire() {
+	console.log("Le personnage est l'imposteur. Victoire");
 }
