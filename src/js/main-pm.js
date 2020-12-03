@@ -26,7 +26,7 @@ function Personnage(imposteur,vie,fichierImg) {
  */
 function setScenario(newScenario) {
 	console.log("set scenario");
-	choixScenario = newScenario;
+	sessionStorage.setItem("choixScenario", newScenario);
 }
 
 function setTour(newTour) {
@@ -37,6 +37,7 @@ function setTour(newTour) {
  * Cree la partie en fonction du scenario selectionne
  */
 function gestionJeu() {
+	let choixScenario = sessionStorage.getItem("choixScenario");
 	console.log("Gestion jeu : \n Choix scenario :" +choixScenario);
 	setTour(1);
 	switch(choixScenario) {
