@@ -45,13 +45,7 @@ function createCharacter(char_src, num) {
     card_deck_container.append(div_card);
 }
 
-/* Fonction à appeler */
-createCharacter("./../img/character_yellow.png", 1);
-createCharacter("./../img/character_green.png", 2);
-createCharacter("./../img/character_red.png", 3);
-createCharacter("./../img/character_pink.png", 4);
-createCharacter("./../img/character_orange.png", 5);
-createCharacter("./../img/character_brown.png", 6);
+
 
 btnJouer.onclick = function() {
     choixScenario = selectionScenario.selectedIndex + 1;

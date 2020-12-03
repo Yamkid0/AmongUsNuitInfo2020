@@ -72,12 +72,14 @@ function scenario(numImposteur) {
 function initPersonnages(numImposteur) {
 	console.log("initPersonnages");
 	personnages = new Array();
+	/* Fonction à appeler */
 	for(let i = 0; i < nbPersonnages; i++) {
 		if(i+1 == numImposteur) { //le personnage a definir comme imposteur
-			personnages[i] = new Personnage(true,true,"personnage"+i+".png");
+			personnages[i] = new Personnage(true,true,"character_"+(i+1)+".png");
 		} else {
-			personnages[i] = new Personnage(false,true,"personnage"+i+".png");
+			personnages[i] = new Personnage(false,true,"character_"+(i+1)+".png");
 		}
+		createCharacter(personnages[i].fichierImg, 1);
 	}
 }
 
