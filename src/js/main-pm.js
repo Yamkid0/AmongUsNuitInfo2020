@@ -94,6 +94,7 @@ function afficherStatusPersonnagesDebug() {
  */
 function vote(numPersonnage) {
 	//get personnage voted
+	console.log();
 	if(personnages[numPersonnage-1].imposteur) {
 		afficherVictoire();
 	} else {
