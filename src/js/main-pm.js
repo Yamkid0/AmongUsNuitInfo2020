@@ -1,6 +1,3 @@
-/** Numero du scenario */
-let choixScenario = 1;
-
 /** Numero du tour */
 let tour =1;
 
