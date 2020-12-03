@@ -42,6 +42,7 @@ function createCharacter(char_src, num) {
     let btn_alibi = document.createElement("button");
     btn_alibi.className = "btn btn-info btn_choix";
     btn_alibi.innerHTML = "Alibi";
+    btn_alibi.setAttribute('onclick','changementTexte(' + num + ')');
 
     div_footer.append(btn_voter);
     div_footer.append(br);
