@@ -6,6 +6,10 @@ html, body {
 	width:150px;
 }
 
+#btnJouer {
+    width: 150px;
+}
+
 #btnRegles {
 	background: transparent;
 	border: none !important;
