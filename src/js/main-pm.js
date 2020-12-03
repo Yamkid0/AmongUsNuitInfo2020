@@ -37,7 +37,6 @@ function setTour(newTour) {
  * Cree la partie en fonction du scenario selectionne
  */
 function gestionJeu() {
-	let choixScenario = sessionStorage.getItem("choixScenario");
 	console.log("Gestion jeu : \n Choix scenario :" +choixScenario);
 	setTour(1);
 	switch(choixScenario) {
@@ -49,15 +48,6 @@ function gestionJeu() {
 			break;
 	}
 }
-
-/**
- * Remet toutes les variables par defaut
- */
-function nouvellePartie() {
-	//TODO recuperer numero sur interface ou directement envoye ?
-	setTour(1);
-}
-
 
 /**
  * Effectue les elements necessaires pour le scenario 1
@@ -84,8 +74,9 @@ function initPersonnages(numImposteur) {
 	}
 }
 
-function changementTexte() {
-
+function changementTexte(numPersonnage) {
+	//setText one de texte a celle correspondant 
+	document.getElementById('text_alibi_container').innerHTML = getTextForCharacter(numPersonnage);
 }
 
 /**
