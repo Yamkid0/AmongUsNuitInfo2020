@@ -1,12 +1,5 @@
 const card_deck_container = document.getElementById('card_deck_container');
 
-let btnJouer = document.getElementById('btnJouer');
-let selectionScenario = document.getElementById('selectionScenario');
-
-/** Numero du scenario */
-let choixScenario = 1;
-
-
 /*
 Crée un personnage.
 @param char_src : chemin vers le fichier image du personnage
@@ -46,14 +39,9 @@ function createCharacter(char_src, num) {
 }
 
 /* Fonction à appeler */
-createCharacter("./../img/character_yellow.png", 1);
+/*createCharacter("./../img/character_yellow.png", 1);
 createCharacter("./../img/character_green.png", 2);
 createCharacter("./../img/character_red.png", 3);
 createCharacter("./../img/character_pink.png", 4);
 createCharacter("./../img/character_orange.png", 5);
-createCharacter("./../img/character_brown.png", 6);
-
-btnJouer.onclick = function() {
-    choixScenario = selectionScenario.selectedIndex + 1;
-    console.log(choixScenario);
-}
+createCharacter("./../img/character_brown.png", 6);*/
