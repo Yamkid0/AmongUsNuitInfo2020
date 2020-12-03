@@ -38,9 +38,12 @@ function createCharacter(char_src) {
 }
 
 /* Fonction à appeler */
-for (let i = 0; i < 6; i++) {
-    createCharacter("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b1ceee5-9458-4434-80bc-fc5d83a2ea88/de5dkfo-361fa49d-4f48-432b-a55d-c9dad5fc5055.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNGIxY2VlZTUtOTQ1OC00NDM0LTgwYmMtZmM1ZDgzYTJlYTg4XC9kZTVka2ZvLTM2MWZhNDlkLTRmNDgtNDMyYi1hNTVkLWM5ZGFkNWZjNTA1NS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KPxCEBilI2yzC4kbrECS07aXWy4SGKXTrJ9DjMBgu8E");
-}
+createCharacter("./../img/character_yellow.png");
+createCharacter("./../img/character_green.png");
+createCharacter("./../img/character_red.png");
+createCharacter("./../img/character_pink.png");
+createCharacter("./../img/character_orange.png");
+createCharacter("./../img/character_brown.png");
 
 let btnJouer = document.getElementById('btnJouer');
 let selectionScenario = document.getElementById('selectionScenario');
