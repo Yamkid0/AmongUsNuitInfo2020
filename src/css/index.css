@@ -1,9 +1,19 @@
 html, body {
-	background-color: #42768c;
-	text-align: center;
+	background-color: #0c343d;
+	/*text-align: center;*/
 	height: 100%;
 }
 
 #selectionScenario {
 	width:150px;
+}
+
+#btnRegles {
+	background: transparent;
+	border: none !important;
+}
+
+a, a:hover {
+	text-decoration: none;
+	color: white;
 }
