@@ -3,3 +3,7 @@ html, body {
 	text-align: center;
 	height: 100%;
 }
+
+#selectionScenario {
+	width:150px;
+}
