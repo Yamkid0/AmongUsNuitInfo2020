@@ -1,5 +1,5 @@
 html, body {
-	background-color: #0c343d !important;
+	background-color: #202035 !important;
 }
 
 #selectionScenario {
@@ -15,7 +15,7 @@ html, body {
     text-align: center;
 }
 .bg_color {
-    background-color: #0c343d !important;
+    background-color: #202035 !important;
 }
 
 .container {
@@ -48,4 +48,9 @@ html, body {
 }
 #part2 {
     display: none;
+}
+
+#btn_non_vote {
+    background-color: #fe7f2d;
+    border-color: #fe7f2d;
 }
