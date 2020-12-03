@@ -8,7 +8,7 @@ let personnages = new Array();
 let nbPersonnages = 5;
 
 /** Numero de l'imposteur scenario 1 */
-const IMPOSTEUR_SCENARIO1 = 3;
+const IMPOSTEUR_SCENARIO1 = 2;
 
 /** Numero de l'imposteur scenario 2 */
 const IMPOSTEUR_SCENARIO2 = 1;
@@ -50,8 +50,8 @@ function gestionJeu() {
 }
 
 function getCorrespondingAlibi(numPersonnage) {
-	let alibiScenario[][] = listAllAlibi.get(choixScenario);
-	return alibiScenario[numPersonnage][tour];
+	console.log("Tableau :" + (choixScenario-1) +  numPersonnage + tour);
+	return listAllAlibi [choixScenario-1][numPersonnage][tour];
 }
 
 /**
@@ -81,7 +81,8 @@ function initPersonnages(numImposteur) {
 
 function changementTexte(numPersonnage) {
 	//setText one de texte a celle correspondant 
-	document.getElementById('text_alibi_container').innerHTML = getCorrespondingText(numPersonnage);
+	//document.getElementById('text_alibi_container').innerHTML = 
+	getCorrespondingText(numPersonnage);
 }
 
 /**
@@ -89,7 +90,7 @@ function changementTexte(numPersonnage) {
  */
 function afficherStatusPersonnagesDebug() {
 	for(let i = 0; i < personnages.length; i++) {
-		console.log("Personnage : " + i+1 + " est : \n  Imposteur : " + personnages[i].imposteur + " \n  En vie : " + personnages[i].vie + " \n  Image : " + personnages[i].fichierImg);
+		console.log("Personnage : " + (i+1) + " est : \n  Imposteur : " + personnages[i].imposteur + " \n  En vie : " + personnages[i].vie + " \n  Image : " + personnages[i].fichierImg);
 	}
 }
 
