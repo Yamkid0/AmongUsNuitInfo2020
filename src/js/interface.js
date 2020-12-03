@@ -1,6 +1,8 @@
 const card_deck_container = document.getElementById('card_deck_container');
 
-let choixScenario;
+/** Numero du scenario */
+let choixScenario = 1;
+
 
 /*
 Crée un personnage.
