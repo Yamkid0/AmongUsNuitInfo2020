@@ -1,14 +1,19 @@
-//Numero du scenario
+/** Numero du scenario */
 let choixScenario = 1;
-//Numero du tour
+
+/** Numero du tour */
 let tour =1;
-//Array des personnages
+
+/** Array des personnages */
 let personnages = new Array();
 
-let nbPersonnages = 6;
+/** Nombre de personnage */
+let nbPersonnages = 5;
 
+/** Numero de l'imposteur scenario 1 */
 const IMPOSTEUR_SCENARIO1 = 3;
 
+/** Numero de l'imposteur scenario 2 */
 const IMPOSTEUR_SCENARIO2 = 1;
 
 /**
@@ -77,6 +82,10 @@ function initPersonnages(numImposteur) {
 			personnages[i] = new Personnage(false,true,"personnage"+i+".png");
 		}
 	}
+}
+
+function changementTexte() {
+
 }
 
 /**
