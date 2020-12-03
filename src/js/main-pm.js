@@ -5,6 +5,8 @@ var tour =1;
 //Array des personnages
 var personnages = new Array();
 
+var nbPersonnage = 6;
+
 /**
  * Objet de type Personnage
  */
@@ -26,7 +28,9 @@ function setTour(newTour) {
 
 function gestionJeu() {
 	switch(scenario) {
-		case 0:
+		case 1:
+			break;
+		case 2:
 			break;
 	}
 }
@@ -47,4 +51,10 @@ function victoire() {
 
 function scenario1() {
 
+}
+
+function initPersonnages() {
+	for() {
+
+	}
 }
