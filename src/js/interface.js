@@ -5,6 +5,7 @@ const btnJouer = document.getElementById('btnJouer');
 const selectionScenario = document.getElementById('selectionScenario');
 
 const card_deck_container = document.getElementById('card_deck_container');
+const btn_retour = document.getElementById('btn_retour');
 
 let choixScenario;
 
@@ -13,6 +14,12 @@ btnJouer.onclick = function() {
     part1.style.display = 'none';
     part2.style.display = 'block';
     gestionJeu();
+}
+
+btn_retour.onclick = function() {
+    part1.style.display = 'block';
+    part2.style.display = 'none';
+    card_deck_container.innerHTML = "";
 }
 
 /*
