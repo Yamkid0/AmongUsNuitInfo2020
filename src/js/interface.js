@@ -40,6 +40,7 @@ function createCharacter(char_src, num) {
     let img = document.createElement("img");
     img.className = "card-img-top";
     img.src = char_src;
+    img.id = char_src.substring(18, 21);
 
     let div_footer = document.createElement("div");
     div_footer.className = "card-footer align_center bg_color";
@@ -68,7 +69,10 @@ function createCharacter(char_src, num) {
 }
 
 function removeCharacter(index) {
-    document.getElementById("char" + index).remove();
+    let char_img = document.getElementById("r_" + index)
+    char_img.src = "./src/img/tombe.png";
+    char_img.parentElement.children[1].remove();
+
 }
 
 /* Fonction à appeler */
