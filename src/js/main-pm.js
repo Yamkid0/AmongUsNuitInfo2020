@@ -182,6 +182,9 @@ function vote(numPersonnage) {
 
 function neVotePas() {
 	nbPersonnesEnVie+=-1;
+	if (nbPersonnesEnVie == 2) {
+		btn_non_vote.remove();
+	}
 	console.log(nbPersonnesEnVie);
 	tour++;
 	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
