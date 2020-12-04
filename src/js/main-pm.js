@@ -109,6 +109,7 @@ function gestionJeu() {
  */
 function scenario(numImposteur) {
 	initPersonnages(numImposteur);
+	changementContexte();
 	afficherStatusPersonnagesDebug();
 }
 
@@ -136,17 +137,17 @@ function changementTexte(numPersonnage) {
 }
 
 function changementContexte() {
-	document.getElementById('text_context_container').innerHTML = getCorrespondingAlibi(numPersonnage);
+	document.getElementById('text_context_container').innerHTML = getCorrespondingContext();
 }
 
 function getCorrespondingAlibi(numPersonnage) {
-	console.log("getCorrespondingAlibi -> Tableau :" + (choixScenario-1) +  numPersonnage + tour);
+	console.log("getCorrespondingAlibi -> Tableau :" + (choixScenario-1) +  numPersonnage-1 + tour-1);
 	console.log(listAllAlibi [choixScenario-1][numPersonnage-1][tour-1]);
 	return listAllAlibi[choixScenario-1][numPersonnage-1][tour-1];
 }
 
 function getCorrespondingContext() {
-	console.log("getCorrespondingAlibi -> Tableau :" + (choixScenario-1) + tour);
+	console.log("getCorrespondingContext -> Tableau :" + (choixScenario-1) + tour-1);
 	console.log(listContext[choixScenario-1][tour-1]);
 	return listContext[choixScenario-1][tour-1];
 }
@@ -180,6 +181,7 @@ function neVotePas() {
 	nbPersonnesEnVie+=-1;
 	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour-1];
 	personnages[indexPersoMort-1].vie = false;
+	changementContexte();
 	afficherStatusPersonnagesDebug();
 }
 
