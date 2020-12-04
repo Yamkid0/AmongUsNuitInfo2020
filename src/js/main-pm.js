@@ -1,5 +1,5 @@
 /** Numero du tour */
-let tour =1;
+let tour =0;
 
 /** Array des personnages */
 let personnages = new Array();
@@ -20,9 +20,6 @@ const IMPOSTEUR_SCENARIO2 = 1;
 let listAllAlibi = [
 //scenar0
 [
-    // charac0
-    [""],
-
     // charac1 - jaune
     ["J’allais à Medbay, j’ai croisé Rose sur ma route, il y a quelques temps.", 
     ""],
@@ -58,10 +55,10 @@ let listAllAlibi = [
 
 let listContext = [
 // scenar0
-[
-    // tour0
-    "Orange meurt à Reactor. Reporté par Vert.",
+[	
     // tour1
+    "Orange meurt à Reactor. Reporté par Vert.",
+    // tour2
     "Jaune est mort à Cafeteria. Report par Vert",
     // tour3
     "Vert est mort à Communications. Rose a report."
@@ -85,7 +82,7 @@ function setScenario(newScenario) {
 }
 
 function setTour(newTour) {
-	this.tour = 1;
+	this.tour = newTour;
 }
 
 /**
@@ -93,7 +90,7 @@ function setTour(newTour) {
  */
 function gestionJeu() {
 	console.log("Gestion jeu : \n Choix scenario :" + choixScenario);
-	setTour(1);
+	setTour(0);
 	switch(choixScenario) {
 		case 1:
 			scenario(IMPOSTEUR_SCENARIO1);
@@ -110,6 +107,7 @@ function gestionJeu() {
 function scenario(numImposteur) {
 	initPersonnages(numImposteur);
 	changementContexte();
+	document.getElementById('text_alibi_container').innerHTML = " ";
 	afficherStatusPersonnagesDebug();
 }
 
@@ -129,6 +127,8 @@ function initPersonnages(numImposteur) {
 		}
 		createCharacter('./src/img/' + personnages[i].fichierImg, i+1);
 	}
+	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
+	personnages[indexPersoMort].vie = false;
 }
 
 function changementTexte(numPersonnage) {
@@ -141,15 +141,15 @@ function changementContexte() {
 }
 
 function getCorrespondingAlibi(numPersonnage) {
-	console.log("getCorrespondingAlibi -> Tableau :" + (choixScenario-1) +  numPersonnage-1 + tour-1);
-	console.log(listAllAlibi [choixScenario-1][numPersonnage-1][tour-1]);
-	return listAllAlibi[choixScenario-1][numPersonnage-1][tour-1];
+	console.log("getCorrespondingAlibi -> Tableau :" + (choixScenario-1) +  (numPersonnage-1) + (tour));
+	console.log(listAllAlibi [choixScenario-1][numPersonnage-1][tour]);
+	return listAllAlibi[choixScenario-1][numPersonnage-1][tour];
 }
 
 function getCorrespondingContext() {
-	console.log("getCorrespondingContext -> Tableau :" + (choixScenario-1) + tour-1);
-	console.log(listContext[choixScenario-1][tour-1]);
-	return listContext[choixScenario-1][tour-1];
+	console.log("getCorrespondingContext -> Tableau :" + (choixScenario-1) + tour);
+	console.log(listContext[choixScenario-1][tour]);
+	return listContext[choixScenario-1][tour];
 }
 
 
@@ -179,7 +179,8 @@ function vote(numPersonnage) {
 
 function neVotePas() {
 	nbPersonnesEnVie+=-1;
-	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour-1];
+	tour++;
+	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour];
 	personnages[indexPersoMort-1].vie = false;
 	changementContexte();
 	afficherStatusPersonnagesDebug();
