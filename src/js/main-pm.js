@@ -7,11 +7,66 @@ let personnages = new Array();
 /** Nombre de personnage */
 let nbPersonnages = 5;
 
+let nbPersonnesEnVie = 0;
+
 /** Numero de l'imposteur scenario 1 */
 const IMPOSTEUR_SCENARIO1 = 2;
 
+const ORDRE_KILL_SCENARIO1 = [4,1,3];
+
 /** Numero de l'imposteur scenario 2 */
 const IMPOSTEUR_SCENARIO2 = 1;
+
+let listAllAlibi = [
+//scenar0
+[
+    // charac0
+    [""],
+
+    // charac1 - jaune
+    ["J’allais à Medbay, j’ai croisé Rose sur ma route, il y a quelques temps.", 
+    ""],
+
+    // charac2 - marron
+    ["J’ai croisé récemment Rose à Lower Engine. C’était pas loin du meurtre. J’étais à Upper Engine.",
+    "Rose était en admin au moment du meurtre. Il y a une vent qui permet de vite s’y déplacer. Le tour était court. Ce n’est pas impossible qu’il se soit vite réfugié là-bas après le meurtre.",
+    "Je n’étais pas aux Comms. J’étais à Upper Engine et je ne suis pas allé dans cette zone. Le tueur ne peut être que toi. Vert te soupçonnais depuis un moment."],
+
+    // charac3 - vert
+    ["Je suis allé à Admin et ensuite à Reactor j’ai trouvé ici le corps.",
+    "Rose était proche du lieu de crime. Ce n’est pas impossible que ce soit elle mais je reste encore hésitant."],
+
+    // charac4 - orange
+    [""],
+
+    // charac5 - rose
+    ["Moi, à Lower engine. Je n’ai rien vu de particulier. J’ai bien croisé Jaune , il peut vous confirmer que me dirigeais dans la direction opposée.",
+     "Marron  n’était pas loin de bleu en début de game. Je ne sais pas ce qu’il s’est passé ensuite, il me semble qu’ils se suivaient."]
+],
+//scenar1
+[
+    // charac0
+    [""],
+    // charac1 - jaune
+    // charac2 - marron
+    // charac3 - vert
+    // charac4 - orange
+    // charac5 - rose
+
+]
+];
+
+let listContext = [
+// scenar0
+[
+    // tour0
+    "Orange meurt à Reactor. Reporté par Vert.",
+    // tour1
+    "Jaune est mort à Cafeteria. Report par Vert",
+    // tour3
+    "Vert est mort à Communications. Rose a report."
+]
+];
 
 /**
  * Objet de type Personnage
@@ -49,16 +104,12 @@ function gestionJeu() {
 	}
 }
 
-function getCorrespondingAlibi(numPersonnage) {
-	console.log("Tableau :" + (choixScenario-1) +  numPersonnage + tour);
-	return listAllAlibi [choixScenario-1][numPersonnage][tour];
-}
-
 /**
  * Effectue les elements necessaires pour le scenario 1
  */
 function scenario(numImposteur) {
 	initPersonnages(numImposteur);
+	changementContexte();
 	afficherStatusPersonnagesDebug();
 }
 
@@ -69,6 +120,7 @@ function initPersonnages(numImposteur) {
 	console.log("initPersonnages");
 	personnages = new Array();
 	/* Fonction à appeler */
+	nbPersonnesEnVie = nbPersonnages;
 	for(let i = 0; i < nbPersonnages; i++) {
 		if(i+1 == numImposteur) { //le personnage a definir comme imposteur
 			personnages[i] = new Personnage(true,true,"character_"+(i+1)+".png");
@@ -81,9 +133,25 @@ function initPersonnages(numImposteur) {
 
 function changementTexte(numPersonnage) {
 	//setText one de texte a celle correspondant 
-	//document.getElementById('text_alibi_container').innerHTML = 
-	getCorrespondingText(numPersonnage);
+	document.getElementById('text_alibi_container').innerHTML = getCorrespondingAlibi(numPersonnage);
 }
+
+function changementContexte() {
+	document.getElementById('text_context_container').innerHTML = getCorrespondingContext();
+}
+
+function getCorrespondingAlibi(numPersonnage) {
+	console.log("getCorrespondingAlibi -> Tableau :" + (choixScenario-1) +  numPersonnage-1 + tour-1);
+	console.log(listAllAlibi [choixScenario-1][numPersonnage-1][tour-1]);
+	return listAllAlibi[choixScenario-1][numPersonnage-1][tour-1];
+}
+
+function getCorrespondingContext() {
+	console.log("getCorrespondingContext -> Tableau :" + (choixScenario-1) + tour-1);
+	console.log(listContext[choixScenario-1][tour-1]);
+	return listContext[choixScenario-1][tour-1];
+}
+
 
 /**
  * Affiche l'etat actuel des personnages
@@ -107,6 +175,14 @@ function vote(numPersonnage) {
 		afficherDefaite();
 		
 	}
+}
+
+function neVotePas() {
+	nbPersonnesEnVie+=-1;
+	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour-1];
+	personnages[indexPersoMort-1].vie = false;
+	changementContexte();
+	afficherStatusPersonnagesDebug();
 }
 
 /**
