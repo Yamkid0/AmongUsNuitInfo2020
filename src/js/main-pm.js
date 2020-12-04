@@ -196,6 +196,9 @@ function neVotePas() {
  */
 function afficherDefaite() {
     console.log("defaite");
+    part1.style.display = 'none';
+    part2.style.display = 'none';
+    document.getElementById('defaite').style.display = 'block';
 }
 
 /**
@@ -203,4 +206,7 @@ function afficherDefaite() {
  */
 function afficherVictoire() {
     console.log("Le personnage est l'imposteur. Victoire");
+    part1.style.display = 'none';
+    part2.style.display = 'none';
+    document.getElementById('victoire').style.display = 'block';
 }

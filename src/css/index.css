@@ -72,3 +72,9 @@ html, body {
     color: white;
     font-size: 20px;
 }
+
+#victoire, #defaite {
+    display: none;
+    color: #ffffff;
+    margin-top: 100px;
+}
