@@ -64,6 +64,9 @@ html, body {
     border-color: #fe7f2d;
     margin-bottom: 10px;
 }
+#btn_carte {
+    margin-bottom: 10px;
+}
 
 #text_context_container {
     color: white;
