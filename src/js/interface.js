@@ -5,6 +5,9 @@ const btnJouer = document.getElementById('btnJouer');
 const btn_non_vote = document.getElementById('btn_non_vote');
 const selectionScenario = document.getElementById('selectionScenario');
 
+const btn_retour2 = document.getElementById('btn_retour2');
+const btn_retour3 = document.getElementById('btn_retour3');
+
 const card_deck_container = document.getElementById('card_deck_container');
 const btn_retour = document.getElementById('btn_retour');
 
@@ -22,6 +25,16 @@ btn_retour.onclick = function() {
     part1.style.display = 'block';
     part2.style.display = 'none';
     card_deck_container.innerHTML = "";
+}
+
+btn_retour2.onclick = retourAccueil;
+btn_retour3.onclick = retourAccueil;
+
+function retourAccueil() {
+    part1.style.display = 'block';
+    card_deck_container.innerHTML = "";
+    document.getElementById('victoire').style.display = 'none';
+    document.getElementById('defaite').style.display = 'none';
 }
 
 btn_non_vote.onclick = function() {
@@ -75,11 +88,3 @@ function removeCharacter(index) {
     char_img.parentElement.children[1].remove();
 
 }
-
-/* Fonction à appeler */
-/*createCharacter("./../img/character_yellow.png", 1);
-createCharacter("./../img/character_green.png", 2);
-createCharacter("./../img/character_red.png", 3);
-createCharacter("./../img/character_pink.png", 4);
-createCharacter("./../img/character_orange.png", 5);
-createCharacter("./../img/character_brown.png", 6);*/
