@@ -130,6 +130,7 @@ function initPersonnages(numImposteur) {
 	}
 	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
 	personnages[indexPersoMort].vie = false;
+	removeCharacter(indexPersoMort+1);
 	nbPersonnesEnVie+=-1;
 }
 
@@ -180,11 +181,9 @@ function vote(numPersonnage) {
 }
 
 function neVotePas() {
-	
 	nbPersonnesEnVie+=-1;
 	console.log(nbPersonnesEnVie);
 	tour++;
-
 	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
 	personnages[indexPersoMort].vie = false;
 	removeCharacter(indexPersoMort+1);
