@@ -38,7 +38,8 @@ let listAllAlibi = [
 
     // charac5 - rose
     ["Moi, à Lower engine. Je n’ai rien vu de particulier. J’ai bien croisé Jaune , il peut vous confirmer que me dirigeais dans la direction opposée.",
-     "Marron  n’était pas loin de bleu en début de game. Je ne sais pas ce qu’il s’est passé ensuite, il me semble qu’ils se suivaient."]
+     "Marron  n’était pas loin de bleu en début de game. Je ne sais pas ce qu’il s’est passé ensuite, il me semble qu’ils se suivaient.",
+     "L’imposteur est forcément Marron . Il a suivi ses victimes tout a long du jeu."]
 ],
 //scenar1
 [
@@ -183,8 +184,8 @@ function neVotePas() {
 	nbPersonnesEnVie+=-1;
 	console.log(nbPersonnesEnVie);
 	tour++;
-	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour];
-	personnages[indexPersoMort-1].vie = false;
+	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
+	personnages[indexPersoMort].vie = false;
 	changementContexte();
 	afficherStatusPersonnagesDebug();
 }
