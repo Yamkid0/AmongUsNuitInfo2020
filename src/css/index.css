@@ -6,6 +6,15 @@ html, body {
 	width:150px;
 }
 
+#btn_retour {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#btnJouer {
+    width: 150px;
+}
+
 #btnRegles {
 	background: transparent;
 	border: none !important;
