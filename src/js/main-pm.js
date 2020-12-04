@@ -82,16 +82,12 @@ function setScenario(newScenario) {
 	choixScenario = newScenario;
 }
 
-function setTour(newTour) {
-	this.tour = newTour;
-}
-
 /**
  * Cree la partie en fonction du scenario selectionne
  */
 function gestionJeu() {
-	console.log("Gestion jeu : \n Choix scenario :" + choixScenario);
-	setTour(0);
+	tour =0;
+	console.log("Gestion jeu : \n Choix scenario :" + choixScenario + tour);
 	switch(choixScenario) {
 		case 1:
 			scenario(IMPOSTEUR_SCENARIO1);
@@ -129,6 +125,7 @@ function initPersonnages(numImposteur) {
 		createCharacter('./src/img/' + personnages[i].fichierImg, i+1);
 	}
 	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
+	console.log("initPersonnages"+ indexPersoMort);
 	personnages[indexPersoMort].vie = false;
 	removeCharacter(indexPersoMort+1);
 	nbPersonnesEnVie+=-1;
