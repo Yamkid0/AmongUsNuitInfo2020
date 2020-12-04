@@ -14,6 +14,7 @@ btnJouer.onclick = function() {
     choixScenario = selectionScenario.selectedIndex + 1;
     part1.style.display = 'none';
     part2.style.display = 'block';
+    btn_non_vote.style.display = 'inline';
     gestionJeu();
 }
 

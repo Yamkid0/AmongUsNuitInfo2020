@@ -56,7 +56,7 @@ let listAllAlibi = [
 
 let listContext = [
 // scenar0
-[	
+[   
     // tour1
     "Orange meurt à Reactor. Reporté par Vert.",
     // tour2
@@ -78,78 +78,78 @@ function Personnage(imposteur,vie,fichierImg) {
  * Change le numero du scenario
  */
 function setScenario(newScenario) {
-	console.log("set scenario");
-	choixScenario = newScenario;
+    console.log("set scenario");
+    choixScenario = newScenario;
 }
 
 /**
  * Cree la partie en fonction du scenario selectionne
  */
 function gestionJeu() {
-	tour =0;
-	console.log("Gestion jeu : \n Choix scenario :" + choixScenario + tour);
-	switch(choixScenario) {
-		case 1:
-			scenario(IMPOSTEUR_SCENARIO1);
-			break;
-		case 2:
-			scenario(IMPOSTEUR_SCENARIO2);
-			break;
-	}
+    tour =0;
+    console.log("Gestion jeu : \n Choix scenario :" + choixScenario + tour);
+    switch(choixScenario) {
+        case 1:
+            scenario(IMPOSTEUR_SCENARIO1);
+            break;
+        case 2:
+            scenario(IMPOSTEUR_SCENARIO2);
+            break;
+    }
 }
 
 /**
  * Effectue les elements necessaires pour le scenario 1
  */
 function scenario(numImposteur) {
-	initPersonnages(numImposteur);
-	changementContexte();
-	document.getElementById('text_alibi_container').innerHTML = " ";
-	afficherStatusPersonnagesDebug();
+    initPersonnages(numImposteur);
+    changementContexte();
+    document.getElementById('text_alibi_container').innerHTML = " ";
+    afficherStatusPersonnagesDebug();
 }
 
 /**
  * Initialise tous les personnages et l'imposteur
  */
 function initPersonnages(numImposteur) {
-	console.log("initPersonnages");
-	personnages = new Array();
-	/* Fonction à appeler */
-	nbPersonnesEnVie = nbPersonnages;
-	for(let i = 0; i < nbPersonnages; i++) {
-		if(i+1 == numImposteur) { //le personnage a definir comme imposteur
-			personnages[i] = new Personnage(true,true,"character_"+(i+1)+".png");
-		} else {
-			personnages[i] = new Personnage(false,true,"character_"+(i+1)+".png");
-		}
-		createCharacter('./src/img/' + personnages[i].fichierImg, i+1);
-	}
-	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
-	console.log("initPersonnages"+ indexPersoMort);
-	personnages[indexPersoMort].vie = false;
-	removeCharacter(indexPersoMort+1);
-	nbPersonnesEnVie+=-1;
+    console.log("initPersonnages");
+    personnages = new Array();
+    /* Fonction à appeler */
+    nbPersonnesEnVie = nbPersonnages;
+    for(let i = 0; i < nbPersonnages; i++) {
+        if(i+1 == numImposteur) { //le personnage a definir comme imposteur
+            personnages[i] = new Personnage(true,true,"character_"+(i+1)+".png");
+        } else {
+            personnages[i] = new Personnage(false,true,"character_"+(i+1)+".png");
+        }
+        createCharacter('./src/img/' + personnages[i].fichierImg, i+1);
+    }
+    let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
+    console.log("initPersonnages"+ indexPersoMort);
+    personnages[indexPersoMort].vie = false;
+    removeCharacter(indexPersoMort+1);
+    nbPersonnesEnVie+=-1;
 }
 
 function changementTexte(numPersonnage) {
-	//setText one de texte a celle correspondant 
-	document.getElementById('text_alibi_container').innerHTML = getCorrespondingAlibi(numPersonnage);
+    //setText one de texte a celle correspondant 
+    document.getElementById('text_alibi_container').innerHTML = getCorrespondingAlibi(numPersonnage);
 }
 
 function changementContexte() {
-	document.getElementById('text_context_container').innerHTML = getCorrespondingContext();
+    document.getElementById('text_context_container').innerHTML = getCorrespondingContext();
 }
 
 function getCorrespondingAlibi(numPersonnage) {
-	console.log("getCorrespondingAlibi -> Tableau :" + (choixScenario-1) +  (numPersonnage-1) + (tour));
-	console.log(listAllAlibi [choixScenario-1][numPersonnage-1][tour]);
-	return listAllAlibi[choixScenario-1][numPersonnage-1][tour];
+    console.log("getCorrespondingAlibi -> Tableau :" + (choixScenario-1) +  (numPersonnage-1) + (tour));
+    console.log(listAllAlibi [choixScenario-1][numPersonnage-1][tour]);
+    return listAllAlibi[choixScenario-1][numPersonnage-1][tour];
 }
 
 function getCorrespondingContext() {
-	console.log("getCorrespondingContext -> Tableau :" + (choixScenario-1) + tour);
-	console.log(listContext[choixScenario-1][tour]);
-	return listContext[choixScenario-1][tour];
+    console.log("getCorrespondingContext -> Tableau :" + (choixScenario-1) + tour);
+    console.log(listContext[choixScenario-1][tour]);
+    return listContext[choixScenario-1][tour];
 }
 
 
@@ -157,9 +157,9 @@ function getCorrespondingContext() {
  * Affiche l'etat actuel des personnages
  */
 function afficherStatusPersonnagesDebug() {
-	for(let i = 0; i < personnages.length; i++) {
-		console.log("Personnage : " + (i+1) + " est : \n  Imposteur : " + personnages[i].imposteur + " \n  En vie : " + personnages[i].vie + " \n  Image : " + personnages[i].fichierImg);
-	}
+    for(let i = 0; i < personnages.length; i++) {
+        console.log("Personnage : " + (i+1) + " est : \n  Imposteur : " + personnages[i].imposteur + " \n  En vie : " + personnages[i].vie + " \n  Image : " + personnages[i].fichierImg);
+    }
 }
 
 /**
@@ -167,40 +167,40 @@ function afficherStatusPersonnagesDebug() {
  * S'il etait l'imposteur la partie est gagne sinon perdu
  */
 function vote(numPersonnage) {
-	//get personnage voted
-	console.log();
-	if(personnages[numPersonnage-1].imposteur) {
-		afficherVictoire();
-	} else {
-		afficherDefaite();
-		
-	}
+    //get personnage voted
+    console.log();
+    if(personnages[numPersonnage-1].imposteur) {
+        afficherVictoire();
+    } else {
+        afficherDefaite();
+        
+    }
 }
 
 function neVotePas() {
-	nbPersonnesEnVie+=-1;
-	if (nbPersonnesEnVie == 2) {
-		btn_non_vote.remove();
-	}
-	console.log(nbPersonnesEnVie);
-	tour++;
-	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
-	personnages[indexPersoMort].vie = false;
-	removeCharacter(indexPersoMort+1);
-	changementContexte();
-	afficherStatusPersonnagesDebug();
+    nbPersonnesEnVie+=-1;
+    if (nbPersonnesEnVie == 2) {
+        btn_non_vote.style.display = 'none';
+    }
+    console.log(nbPersonnesEnVie);
+    tour++;
+    let indexPersoMort = ORDRE_KILL_SCENARIO1[tour]-1;
+    personnages[indexPersoMort].vie = false;
+    removeCharacter(indexPersoMort+1);
+    changementContexte();
+    afficherStatusPersonnagesDebug();
 }
 
 /**
  * Affiche la video ? gif de defaite
  */
 function afficherDefaite() {
-	console.log("defaite");
+    console.log("defaite");
 }
 
 /**
  * Affiche la video ? gif de victoire
  */
 function afficherVictoire() {
-	console.log("Le personnage est l'imposteur. Victoire");
+    console.log("Le personnage est l'imposteur. Victoire");
 }
