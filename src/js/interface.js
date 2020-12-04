@@ -35,6 +35,7 @@ Crée un personnage.
 function createCharacter(char_src, num) {
     let div_card = document.createElement("div");
     div_card.className = "card bg_color";
+    div_card.id = "char" + num;
 
     let img = document.createElement("img");
     img.className = "card-img-top";
@@ -66,6 +67,9 @@ function createCharacter(char_src, num) {
     card_deck_container.append(div_card);
 }
 
+function removeCharacter(index) {
+    document.getElementById("char" + index).remove();
+}
 
 /* Fonction à appeler */
 /*createCharacter("./../img/character_yellow.png", 1);
