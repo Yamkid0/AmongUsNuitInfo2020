@@ -185,6 +185,7 @@ function neVotePas() {
 	tour++;
 	let indexPersoMort = ORDRE_KILL_SCENARIO1[tour];
 	personnages[indexPersoMort-1].vie = false;
+	removeCharacter(indexPersoMort);
 	changementContexte();
 	afficherStatusPersonnagesDebug();
 }
