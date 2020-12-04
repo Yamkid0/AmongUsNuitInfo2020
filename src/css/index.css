@@ -62,4 +62,10 @@ html, body {
 #btn_non_vote {
     background-color: #fe7f2d;
     border-color: #fe7f2d;
+    margin-bottom: 10px;
+}
+
+#text_context_container {
+    color: white;
+    font-size: 20px;
 }

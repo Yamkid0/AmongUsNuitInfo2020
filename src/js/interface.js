@@ -2,6 +2,7 @@ const part1 = document.getElementById('part1');
 const part2 = document.getElementById('part2');
 
 const btnJouer = document.getElementById('btnJouer');
+const btn_non_vote = document.getElementById('btn_non_vote');
 const selectionScenario = document.getElementById('selectionScenario');
 
 const card_deck_container = document.getElementById('card_deck_container');
@@ -20,6 +21,10 @@ btn_retour.onclick = function() {
     part1.style.display = 'block';
     part2.style.display = 'none';
     card_deck_container.innerHTML = "";
+}
+
+btn_non_vote.onclick = function() {
+    neVotePas();
 }
 
 /*
